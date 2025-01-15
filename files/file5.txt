@@ -1,0 +1,29 @@
+    1  touch file4.txt
+    2  touch file5.txt
+    3  cp file2.txt file6.txt
+    4  cp file3.txt file7.txt
+    5  lls -al
+    6  ls -al
+    7  mkdir files
+    8  ls -al
+    9  clear
+   10  touch script.sh 
+   11  mv file*.txt files/
+   12  ls - al
+   13  ls -al
+   14  rem file7.txt
+   15  top 
+   16  ps
+   17  clear
+   18  ps
+   19  ps -aux
+   20  ps aux > file6.txt
+   21  ls -al
+   22  cd /files
+   23  cd files/
+   24  head file6.txt
+   25  ps aux > file6.txt
+   26  head file6.txt
+   27  clear
+   28  history 
+   29  history > file5.txt
