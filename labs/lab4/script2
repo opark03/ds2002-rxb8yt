@@ -1,0 +1,21 @@
+#!/bin/bash
+
+import boto3, requests, sys
+
+if len(sys.argv) < 3:
+    print("Usage: python script.py <file_url> <bucket_name>")
+    sys.exit(1)
+
+url, bucket = sys.argv[1], sys.argv[2]
+file_name = url.split("/")[-1]
+
+open(file_name, "wb").write(requests.get(url).content)
+
+s3 = boto3.client("s3")
+s3.upload_file(file_name, bucket, file_name)
+
+print(s3.generate_presigned_url("get_object", Params={"Bucket": bucket, 
+"Key": file_name}, ExpiresIn=604800))
+
+
+

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ $# -lt 2 ]; then
+    echo "Usage: $0 <file> <bucket> [expiration]"
+    exit 1
+fi
+
+FILE=$1
+BUCKET=$2
+EXPIRATION=${3:-604800}  # Default to 7 days
+
+aws s3 cp "$FILE" "s3://$BUCKET/" --acl private
+
+aws s3 presign "s3://$BUCKET/$(basename "$FILE")" --expires-in 
+"$EXPIRATION"
+
